@@ -1,65 +1,76 @@
-// 'use strict';
 
-// const client = require('socket.io-client');
-// const host = "http://localhost:8000/caps";
-// const socket = client.connect(host);
-// const faker = require("faker");
+'use strict'
 
 
 
+const socket = io('ws://localhost:8080/food');
 
-// const value = process.argv.splice(2)[0];
-// console.log("value : ", value);
+// const id = Math.floor(Math.random() * 2515412154202)
+
+socket.on('message', text => {
+
+    console.log(text)
+    const el = document.createElement('li');
+    const el1 = document.createElement('li');
+    const el2 = document.createElement('li');
+    const el3 = document.createElement('li');
+    
+    el.innerHTML = `  your order :${text.text  }      name:${text.text1  }   phone: ${text.text2  } loction: ${text.text3  } and send it to the resturnt `
+
+    setTimeout(() => {
+        el1.innerHTML='your order has been recieved and its in progress' 
+    },3000);
+    
+    document.querySelector('ul').appendChild(el)
+    document.querySelector('ul').appendChild(el1)
+    document.querySelector('ul').appendChild(el2)
+    document.querySelector('ul').appendChild(el3)
+
+    socket.on('trinzet',payload=>{
+        el2.innerHTML='your order in the  way to you  '
+    })
+
+    socket.on('deliveredV',delivered)
+  function delivered(payload){
+    el3.innerHTML='thank you for ordering from our FOOD JO '
+      
+  }
+
+});
 
 
-// setInterval(() => {
- 
- 
-//   socket.emit('new_Order', value);
-//   socket.emit('pickUp', value);
-//   }, 5000);
 
-// socket.on('added',payload=>{
-//   console.log('thank you for adding to queue ', payload.orderID)
-// }) 
-// socket.on('deliveredV',delivered)
-// function delivered(payload){
+  
+
+
+
+document.querySelector('button').onclick = () => {
+
+    const text = document.getElementById('i').value;
+    const text1 = document.getElementById('n').value;
+    const text2 = document.getElementById('p').value;
+    const text3 = document.getElementById('u').value;
    
-//     console.log('thank you for delevering ', payload)
-// }
-
-
-
-'use strict';
-
-const client = require('socket.io-client');
-const host = "http://localhost:3000/family";
-const socket = client.connect(host);
-const form=document.getElementById('form')
-
-
-form.addEventListener('sumbit',handler)
-
-function handler(e){
-    e.preventDefault()
-let order=e.target.order.value
-socket.emit('new_chore', order);
-console.log("value : ", order);
+const obj ={
+    text:text,
+    text1:text1,
+    text2:text2,
+    text3:text3,
+   
+}
+    socket.emit('message', obj)
+    alert('your order have been reseved')
 }
 
+// Regular Websockets
 
-// take the task value from argument form the terminal
-// console.log(process.argv)
-// const value = process.argv.splice(2)[0];
+// const socket = new WebSocket('ws://localhost:8080');
 
+// // Listen for messages
+// socket.onmessage = ({ data }) => {
+//     console.log('Message from server ', data);
+// };
 
-
-
-
-// socket.emit('new_chore', "wash the dishes");
-
-
-socket.on('added', payload=> {
-    console.log("Thank you for adding : ", payload , " to the queue");
-    socket.disconnect();
-});
+// document.querySelector('button').onclick = () => {
+//     socket.send('hello');
+// }
