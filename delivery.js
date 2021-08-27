@@ -6,22 +6,17 @@ const socket = io('ws://localhost:8080/food');
 // pulling msgs 
 socket.emit('get_all');
 
-
-
 socket.on('order', payload=> {
 
   document.querySelector('button').onclick = () => {
-    console.log("i got the order and i will deleverd it : ", payload)
-    
+    console.log("I Got The Order and i will Delivered it : ", payload)
   
-   
     const el = document.createElement('li');
     const el1 = document.createElement('li');
     const el2 = document.createElement('li');
-    // el.innerHTML = `i got the order and i will deleverd it : , ${payload.payload.text}`
 
     setTimeout(() => {
-        el.innerHTML=`i got the order and i will deleverd it : , ${payload.payload.text}` 
+        el.innerHTML=`I Got The Order and i will Delivered it : , ${payload.payload.text}` 
     },5000);
     
     document.querySelector('ul').appendChild(el)
@@ -35,7 +30,7 @@ socket.on('order', payload=> {
     setTimeout(() => {
     //   console.log("Driver: picked up ");
     
-    el1.innerHTML="im on the way to delever the oreder  "
+    el1.innerHTML="Your Order On The Way  "
       socket.emit("in-transit", payload);
       
 
@@ -44,7 +39,7 @@ socket.on('order', payload=> {
 
     setTimeout(() => {
     //   console.log("Driver: delivered", payload);
-    el2.innerHTML='the order was deleverd'
+    el2.innerHTML='The Order Was Delivered'
       socket.emit("delivered", payload);
     }, 12000);
   
