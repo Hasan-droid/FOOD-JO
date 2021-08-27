@@ -5,9 +5,11 @@ const socket = io('ws://localhost:8080/food');
 // pulling msgs 
 socket.emit('get_all');
 
+
+
 socket.on('order', payload=> {
 
-
+  document.querySelector('button').onclick = () => {
     console.log("i got the order and i will deleverd it : ", payload)
     
   
@@ -43,7 +45,7 @@ socket.on('order', payload=> {
     //   console.log("Driver: delivered", payload);
     el2.innerHTML='the order was deleverd'
       socket.emit("delivered", payload);
-    }, 10000);
+    }, 12000);
   
-  
+  }
   })

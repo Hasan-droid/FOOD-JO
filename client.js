@@ -44,33 +44,22 @@ socket.on('message', text => {
 
 
 
-document.querySelector('button').onclick = () => {
+document.getElementById('but0').onclick = () => {
 
-    const text = document.getElementById('i').value;
+    const text  = document.getElementById('i').value;
     const text1 = document.getElementById('n').value;
     const text2 = document.getElementById('p').value;
     const text3 = document.getElementById('u').value;
+    const text4 = document.getElementById('t').value;
    
 const obj ={
     text:text,
     text1:text1,
     text2:text2,
     text3:text3,
+    text4:text4,
    
 }
     socket.emit('message', obj)
     alert('your order have been reseved')
 }
-
-// Regular Websockets
-
-// const socket = new WebSocket('ws://localhost:8080');
-
-// // Listen for messages
-// socket.onmessage = ({ data }) => {
-//     console.log('Message from server ', data);
-// };
-
-// document.querySelector('button').onclick = () => {
-//     socket.send('hello');
-// }
