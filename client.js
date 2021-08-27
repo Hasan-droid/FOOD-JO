@@ -4,6 +4,7 @@ const socket = io('ws://localhost:8080/food');
 
 // const id = Math.floor(Math.random() * 2515412154202)
 
+
 socket.on('message', text => {
 
     console.log(text)

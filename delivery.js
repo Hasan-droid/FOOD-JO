@@ -1,5 +1,6 @@
 'use strict';
 
+
 const socket = io('ws://localhost:8080/food');
 
 // pulling msgs 
