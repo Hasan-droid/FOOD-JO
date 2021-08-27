@@ -3,34 +3,51 @@
 const socket = io('ws://localhost:8080/food');
 
 // const id = Math.floor(Math.random() * 2515412154202)
+const card1=document.getElementById("card1");
 
+const card2=document.getElementById("card2");
+const card3=document.getElementById("card3");
+const card4=document.getElementById("card4");
+card1.style.visibility='hidden';
+card2.style.visibility='hidden';
+card3.style.visibility='hidden';
+card4.style.visibility='hidden';
 
 socket.on('message', text => {
-
+   let p=card1.childNodes[1].childNodes;
+    console.log(p[5].innerHTML=`order : ${text.text  } <br> to: ${text.text1  }  <br> Location: ${text.text3  } <br>  Phone: ${text.text2  }  `);
+    p[5].style.color="darkkhaki"
     console.log(text)
-    const el = document.createElement('li');
-    const el1 = document.createElement('li');
-    const el2 = document.createElement('li');
-    const el3 = document.createElement('li');
+  
+    card1.style.visibility="visible"
     
-    el.innerHTML = `  Your Order :${text.text  }     With Name:${text.text1  }   Phone: ${text.text2  } Location: ${text.text3  } and send it to the Restaurant `
+  
 
     setTimeout(() => {
-        el1.innerHTML='Your Order On Progress' 
+        card2.style.visibility="visible"
+        let p2=card2.childNodes[1].childNodes[3];
+        console.log(p2.innerHTML="resturant preparing your order now");
+        p2.style.color="darkkhaki"
+       
     },3000);
     
-    document.querySelector('ul').appendChild(el)
-    document.querySelector('ul').appendChild(el1)
-    document.querySelector('ul').appendChild(el2)
-    document.querySelector('ul').appendChild(el3)
+
 
     socket.on('trinzet',payload=>{
-        el2.innerHTML='Your Order On The Way  '
+        card3.style.visibility="visible"
+        let p3=card3.childNodes[1].childNodes[3];
+        console.log(p3.innerHTML="Your Order On The Way");
+        p3.style.color="darkkhaki"
+      
     })
 
     socket.on('deliveredV',delivered)
   function delivered(payload){
-    el3.innerHTML='Thank You For Ordering From FOOD JO '
+    card4.style.visibility="visible"
+    let p4=card4.childNodes[1].childNodes[3];
+    console.log(p4.innerHTML="Thank You For Ordering From FOOD JO");
+    p4.style.color="darkkhaki"
+   
       
   }
 
