@@ -1,7 +1,4 @@
-
 'use strict'
-
-
 
 const socket = io('ws://localhost:8080/food');
 
@@ -15,10 +12,10 @@ socket.on('message', text => {
     const el2 = document.createElement('li');
     const el3 = document.createElement('li');
     
-    el.innerHTML = `  your order :${text.text  }      name:${text.text1  }   phone: ${text.text2  } loction: ${text.text3  } and send it to the resturnt `
+    el.innerHTML = `  Your Order :${text.text  }     With Name:${text.text1  }   Phone: ${text.text2  } Location: ${text.text3  } and send it to the Restaurant `
 
     setTimeout(() => {
-        el1.innerHTML='your order has been recieved and its in progress' 
+        el1.innerHTML='Your Order On Progress' 
     },3000);
     
     document.querySelector('ul').appendChild(el)
@@ -27,22 +24,16 @@ socket.on('message', text => {
     document.querySelector('ul').appendChild(el3)
 
     socket.on('trinzet',payload=>{
-        el2.innerHTML='your order in the  way to you  '
+        el2.innerHTML='Your Order On The Way  '
     })
 
     socket.on('deliveredV',delivered)
   function delivered(payload){
-    el3.innerHTML='thank you for ordering from our FOOD JO '
+    el3.innerHTML='Thank You For Ordering From FOOD JO '
       
   }
 
 });
-
-
-
-  
-
-
 
 document.getElementById('but0').onclick = () => {
 
@@ -61,5 +52,5 @@ const obj ={
    
 }
     socket.emit('message', obj)
-    alert('your order have been reseved')
+    alert('Your Order Have Been Reserved')
 }
