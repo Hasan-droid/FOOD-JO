@@ -175,30 +175,39 @@
                      
                     </div >
                    
+
+                    <form >
                       <div class="row" >
                         <div class="col-md-6">
                           <div class="form-group">
                     
                             <label class="label" for="name">Full Name</label>
-                            <input type="text" class="form-control" name="name" id="n" placeholder="Name">
+                            <input type="text" class="form-control" name="name" id="n" placeholder="Name" required>
                           </div>
                         </div>
                         <div class="col-md-6"> 
                           <div class="form-group">
                             <label class="label" for="email">Phone Number</label>
-                            <input type="text" class="form-control" name="email" id="p" placeholder="Phone Number">
+                            <input type="text" class="form-control" name="email" id="p" placeholder="Phone Number" required>
                           </div>
                         </div>
                         <div class="col-md-12">
                           <div class="form-group">
-                            <label class="label" for="subject">Order </label>
-                            <input type="text" class="form-control" name="subject" id="i" placeholder="order">
+                              <label class="label" for="subject">Order </label>
+                              <select name="subject" id="i"  class="form-control">
+                                   <option value="American Breakfast">American Breakfast</option>
+                                   <option value="Self-made Salad">Self-made Salad</option>
+                                   <option value="Chinese Noodle">Chinese Noodle</option>
+                                   <option value="Rice Soup">Rice Soup</option>
+                                   <option value="Deli Burger">Deli Burger</option>
+                                   <option value="Big Flat Fried">Big Flat Fried</option>
+                              </select>
                           </div>
                         </div>
                         <div class="col-md-12">
                           <div class="form-group">
                             <label class="label" for="subject">Location </label>
-                            <input type="text" class="form-control" name="subject" id="u" placeholder="location">
+                            <input type="text" class="form-control" name="subject" id="u" placeholder="location" required>
                           </div>
                         </div>
                         <div class="col-md-12">
@@ -209,12 +218,12 @@
                         </div>
                         <div class="col-md-12">
                           <div class="form-group">
-                            <button   id="but0"class="btn btn-primary">Send Order </button>
+                            <button   id="but0"class="btn btn-primary" type="submit">Send Order </button>
                             <div class="submitting"></div>
                           </div>
                         </div>
                       </div>
-                   
+                    </form>
                   </div>
                 </div>
               </div>
@@ -228,28 +237,28 @@
                                     <!-- card view -->
                              
 
-                                    <div class="containerCard">
+                                    <div class="containerCard" id="porgCards">
                                         <div class="card__container">
-                                          <div class="card">
+                                          <div class="card" id="card1">
                                             <div class="card__content">
                                                  <!-- <img src="https://media-exp1.licdn.com/dms/image/C561BAQHnh3Tsc_uBKQ/company-background_10000/0/1561589281326?e=2159024400&v=beta&t=3cfGYoRfVwt5-vQJL_x4W7MrP_uwZB-PRzqqpfBr5Gg" width='100%' > -->
-                                              <h3 class="card__header">Card 1</h3>
+                                              <h3 class="card__header" style="color: darkgoldenrod;">Your order</h3>
                                               <p class="card__info">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                                              
                                             </div>
                                           </div>
-                                          <div class="card">
+                                          <div class="card" id="card2">
                                             <div class="card__content">
-                                              <h3 class="card__header">Card 2</h3>
+                                              <h3 class="card__header" style="color: cornflowerblue;">In Progress</h3>
                                               <p class="card__info">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                                          
                                             </div>
                                             
                                           </div>
-                                          <div class="card">
+                                          <div class="card" id="card3">
                                             <div class="card__content">
-                                              <h3 class="card__header">Card 3</h3>
-                                              <p class="card__info">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                              <h3 class="card__header" style="color: darkorange;">delevering to you</h3>
+                                              <p class="card__info" >Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                                             
                                             </div>
 
@@ -257,9 +266,9 @@
                                             
                                           </div>
 
-                                          <div class="card">
+                                          <div class="card" id="card4">
                                              <div class="card__content">
-                                               <h3 class="card__header">Card 3</h3>
+                                               <h3 class="card__header" style="color: green;">Deliverd</h3>
                                                <p class="card__info">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                                              
                                              </div>
