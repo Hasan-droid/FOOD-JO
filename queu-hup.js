@@ -10,6 +10,7 @@ const io = require("socket.io")(http, {
 const msgQueue = {
   orders: {},
 };
+
 http.listen(8080, () => console.log("listening on http://localhost:8080"));
 const FOOD = io.of("/food");
 
