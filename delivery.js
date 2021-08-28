@@ -24,7 +24,7 @@ socket.on('order', payload=> {
         
         <h3 class="card__header">Got The Order</h3>
     <p class="card__info">
-    I Got The Order and i will Delivered it :${payload.payload.text}</br>
+    New Order Has Been Received :${payload.payload.text}</br>
     for : ${payload.payload.text1}
     </p>
                                              
@@ -47,7 +47,7 @@ socket.on('order', payload=> {
        
         <h3 class="card__header">Order On The Way</h3>
     <p class="card__info">
-      im in my way to ${payload.payload.text2}
+      Im Delivering The Order To ${payload.payload.text3}
     </p>
                                              
           </div>
@@ -67,7 +67,7 @@ socket.on('order', payload=> {
        
         <h3 class="card__header">The Order Was Delivered</h3>
     <p class="card__info">
-      i deleverd the order :${payload.payload.text}
+      Order Has Been Delivered Successfully :${payload.payload.text}
     </p>
                                              
           </div>

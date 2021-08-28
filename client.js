@@ -15,7 +15,7 @@ card4.style.visibility='hidden';
 
 socket.on('message', text => {
    let p=card1.childNodes[1].childNodes;
-    console.log(p[5].innerHTML=`order : ${text.text  } <br> to: ${text.text1  }  <br> Location: ${text.text3  } <br>  Phone: ${text.text2  }  `);
+    console.log(p[5].innerHTML=` Meal Type: ${text.text  } <br> To: ${text.text1  }  <br> Location: ${text.text3  } <br>  Phone: ${text.text2  }  `);
     p[5].style.color="darkkhaki"
     console.log(text)
   
@@ -26,7 +26,7 @@ socket.on('message', text => {
     setTimeout(() => {
         card2.style.visibility="visible"
         let p2=card2.childNodes[1].childNodes[3];
-        console.log(p2.innerHTML="resturant preparing your order now");
+        console.log(p2.innerHTML="The Restaurant Preparing Your Order Now");
         p2.style.color="darkkhaki"
        
     },3000);
