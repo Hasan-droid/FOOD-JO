@@ -9,19 +9,30 @@ socket.emit('get_all');
 socket.on('order', payload=> {
 
   document.querySelector('button').onclick = () => {
-    console.log("I Got The Order and i will Delivered it : ", payload)
+
+
+    let dev=document.querySelector('.card__container')
+    dev.innerHTML=''
   
-    const el = document.createElement('li');
-    const el1 = document.createElement('li');
-    const el2 = document.createElement('li');
+    
 
     setTimeout(() => {
-        el.innerHTML=`I Got The Order and i will Delivered it : , ${payload.payload.text}` 
+      dev.innerHTML+=`
+      
+      <div class="card">
+       <div class="card__content">
+        
+        <h3 class="card__header">Got The Order</h3>
+    <p class="card__info">
+    I Got The Order and i will Delivered it :${payload.payload.text}</br>
+    for : ${payload.payload.text1}
+    </p>
+                                             
+          </div>
+   </div>` 
     },5000);
     
-    document.querySelector('ul').appendChild(el)
-    document.querySelector('ul').appendChild(el1)
-    document.querySelector('ul').appendChild(el2)
+   
   
         socket.emit('received', payload)
    
@@ -30,7 +41,18 @@ socket.on('order', payload=> {
     setTimeout(() => {
     //   console.log("Driver: picked up ");
     
-    el1.innerHTML="Your Order On The Way  "
+    dev.innerHTML+=`   
+    <div class="card">
+       <div class="card__content">
+       
+        <h3 class="card__header">Order On The Way</h3>
+    <p class="card__info">
+      im in my way to ${payload.payload.text2}
+    </p>
+                                             
+          </div>
+   </div>
+    `
       socket.emit("in-transit", payload);
       
 
@@ -39,7 +61,18 @@ socket.on('order', payload=> {
 
     setTimeout(() => {
     //   console.log("Driver: delivered", payload);
-    el2.innerHTML='The Order Was Delivered'
+    dev.innerHTML+=`
+    <div class="card">
+       <div class="card__content">
+       
+        <h3 class="card__header">The Order Was Delivered</h3>
+    <p class="card__info">
+      i deleverd the order :${payload.payload.text}
+    </p>
+                                             
+          </div>
+   </div>
+    `
       socket.emit("delivered", payload);
     }, 12000);
   
